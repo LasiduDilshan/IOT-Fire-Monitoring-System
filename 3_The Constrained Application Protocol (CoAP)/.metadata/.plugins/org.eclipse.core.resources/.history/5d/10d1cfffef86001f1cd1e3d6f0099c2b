@@ -1,0 +1,7 @@
+package CoAP_Server;
+
+import org.eclipse.californium.core.CoapServer;
+
+public class TutorialServer extends CoapServer {
+
+}

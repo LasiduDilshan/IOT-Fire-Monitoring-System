@@ -1,0 +1,573 @@
+[
+    {
+        "id": "55dd04b4f36dc6d3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "83c0e676e6e7adf4",
+        "type": "mqtt in",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Weather",
+        "topic": "JACK1234",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "57f39d9c87f4f493",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "a79b7f4888664775",
+                "8e0b562029d1c1f0",
+                "1b7c9c3560cc2f1b",
+                "860d6b8ba3abf852",
+                "afab510dc72dd87d",
+                "e99160599b0ed031",
+                "29f701d6f6f039bc",
+                "515f399ac21cc9b5",
+                "e76c08892dea0cb7"
+            ]
+        ]
+    },
+    {
+        "id": "a613d0c0a0c95f45",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "365ec49fe12ad712",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a79b7f4888664775",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Temperature ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.main.temp",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "a613d0c0a0c95f45"
+            ]
+        ]
+    },
+    {
+        "id": "0eed4c08bf3732e6",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "365ec49fe12ad712",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Feels Like",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8e0b562029d1c1f0",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Feels Like ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.main.feels_like",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "0eed4c08bf3732e6"
+            ]
+        ]
+    },
+    {
+        "id": "067d2f77636212e9",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "72674664da3d714e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 900,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1b7c9c3560cc2f1b",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Humidity ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.main.humidity",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "067d2f77636212e9"
+            ]
+        ]
+    },
+    {
+        "id": "5828a9ca2c283e8c",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "49acdc0efc3934be",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Wind Speed",
+        "label": "m/s",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "860d6b8ba3abf852",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Wind Speed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.wind.speed",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "5828a9ca2c283e8c"
+            ]
+        ]
+    },
+    {
+        "id": "71483ef1b0bc727e",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "49acdc0efc3934be",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Wind Direction",
+        "label": "deg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "afab510dc72dd87d",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Wind Direction ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.wind.deg",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "71483ef1b0bc727e"
+            ]
+        ]
+    },
+    {
+        "id": "e99160599b0ed031",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Rain Volume",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.rain['1h']",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "3eb342759bb6d3f9"
+            ]
+        ]
+    },
+    {
+        "id": "3eb342759bb6d3f9",
+        "type": "ui_text",
+        "z": "55dd04b4f36dc6d3",
+        "group": "72674664da3d714e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Rain Volume(mm)",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "29f701d6f6f039bc",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Weather Description",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.weather[0].description",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "80a6653f95a4b4bc"
+            ]
+        ]
+    },
+    {
+        "id": "515f399ac21cc9b5",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Weather",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.weather[0].icon",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80a6653f95a4b4bc",
+        "type": "ui_text",
+        "z": "55dd04b4f36dc6d3",
+        "group": "72674664da3d714e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Weather Description",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 960,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e76c08892dea0cb7",
+        "type": "change",
+        "z": "55dd04b4f36dc6d3",
+        "name": "Pressure",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.main.pressure",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 460,
+        "wires": [
+            [
+                "f95fa48e47c5c014"
+            ]
+        ]
+    },
+    {
+        "id": "f95fa48e47c5c014",
+        "type": "ui_gauge",
+        "z": "55dd04b4f36dc6d3",
+        "name": "",
+        "group": "ec0e8bb1708c2716",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 860,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "57f39d9c87f4f493",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.eclipseprojects.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "365ec49fe12ad712",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "16851fde3206fbc8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "72674664da3d714e",
+        "type": "ui_group",
+        "name": "Humidity and Rain",
+        "tab": "16851fde3206fbc8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49acdc0efc3934be",
+        "type": "ui_group",
+        "name": "Wind",
+        "tab": "16851fde3206fbc8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ec0e8bb1708c2716",
+        "type": "ui_group",
+        "name": "Atmospheric Condition",
+        "tab": "16851fde3206fbc8",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16851fde3206fbc8",
+        "type": "ui_tab",
+        "name": "Current Weather",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

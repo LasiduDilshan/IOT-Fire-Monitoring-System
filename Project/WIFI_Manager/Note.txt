@@ -1,0 +1,3 @@
+https://randomnerdtutorials.com/arduino-ide-2-install-esp32-littlefs/
+
+https://randomnerdtutorials.com/esp32-wi-fi-manager-asyncwebserver/#:~:text=Uploading%20Code%20and%20Files

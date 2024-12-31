@@ -1,0 +1,300 @@
+[
+    {
+        "id": "9924b9245c82763d",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5b386030f283f501",
+        "type": "openweathermap in",
+        "z": "9924b9245c82763d",
+        "name": "Weather",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Matara",
+        "country": "Sri Lanka",
+        "language": "en",
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "4d4e2b1b5f0dc839",
+                "639de59e23ab40be",
+                "c6808dbf270d604b",
+                "549dde70305b21e4",
+                "75e226f93dc080bb"
+            ]
+        ]
+    },
+    {
+        "id": "4d4e2b1b5f0dc839",
+        "type": "debug",
+        "z": "9924b9245c82763d",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "639de59e23ab40be",
+        "type": "change",
+        "z": "9924b9245c82763d",
+        "name": "Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 360,
+        "wires": [
+            [
+                "1583ea8f48a04ac2"
+            ]
+        ]
+    },
+    {
+        "id": "1583ea8f48a04ac2",
+        "type": "ui_gauge",
+        "z": "9924b9245c82763d",
+        "name": "",
+        "group": "3358f7d20c62ac36",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Temperature",
+        "label": "Temp",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c6808dbf270d604b",
+        "type": "change",
+        "z": "9924b9245c82763d",
+        "name": "Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 440,
+        "wires": [
+            [
+                "aed90cbb5850aa48"
+            ]
+        ]
+    },
+    {
+        "id": "aed90cbb5850aa48",
+        "type": "ui_gauge",
+        "z": "9924b9245c82763d",
+        "name": "",
+        "group": "3358f7d20c62ac36",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "549dde70305b21e4",
+        "type": "change",
+        "z": "9924b9245c82763d",
+        "name": "Windspeed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.windspeed",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 520,
+        "wires": [
+            [
+                "a33163b9b28653e5"
+            ]
+        ]
+    },
+    {
+        "id": "a33163b9b28653e5",
+        "type": "ui_gauge",
+        "z": "9924b9245c82763d",
+        "name": "",
+        "group": "af2aa46ecc0aebc2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Windspeed",
+        "label": "m/s",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 930,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "75e226f93dc080bb",
+        "type": "change",
+        "z": "9924b9245c82763d",
+        "name": "Wind Direction",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.winddirection",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 580,
+        "wires": [
+            [
+                "c53ee768b3e94cd0"
+            ]
+        ]
+    },
+    {
+        "id": "c53ee768b3e94cd0",
+        "type": "ui_gauge",
+        "z": "9924b9245c82763d",
+        "name": "",
+        "group": "af2aa46ecc0aebc2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Wind Direction",
+        "label": "Degree",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3358f7d20c62ac36",
+        "type": "ui_group",
+        "name": "Temperature and Humidity",
+        "tab": "65d070631795b30f",
+        "order": 1,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af2aa46ecc0aebc2",
+        "type": "ui_group",
+        "name": "Wind Data",
+        "tab": "65d070631795b30f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "65d070631795b30f",
+        "type": "ui_tab",
+        "name": "Live Weather",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
