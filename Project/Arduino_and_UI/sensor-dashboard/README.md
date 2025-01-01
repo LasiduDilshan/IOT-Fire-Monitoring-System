@@ -38,5 +38,3 @@
    After pressing the **"STOP WARNING"** or **"FORCED STOP"** buttons, you must press the **"NORMAL MODE"** button to resume normal operations.
 
 ---
-
-This should provide clear instructions for setting up and running your project. Feel free to modify any details specific to your setup!
