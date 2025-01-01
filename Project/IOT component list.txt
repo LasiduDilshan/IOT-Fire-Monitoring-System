@@ -1,0 +1,16 @@
+Sensors: 
+LDR Light Sensor Module for Arduino (MD0222) - 1 
+MQ-7 Carbon Monoxide CO Gas Sensor Module Type 1 (MD0211) - 1 
+DHT11 Temperature and Relative Humidity Sensor Module for Arduino (MD0095) - 1
+
+IC: 
+ESP32S WiFi Bluetooth Dual Mode Module (Without Adapter) (MD0271) - 1
+
+Components: 
+AMS1117-3.3 Voltage Regulator (IC0025)  -  3
+1k 1/8W Resistor Pack SMD 0805 1% (Approx. 40pcs) (RU0025)  -  5
+10uF 25V Capacitor Pack SMD 0805 (Approx. 40pcs) (CP0039)  -  5
+Interlocking Self Locking Switch 6-pin On/Off 7x7mm (BU0075)  -  2 
+Connector Header Through Hole 2 position 0.098 (2.50mm)   - 2 
+Connector Header Through Hole 3 position 0.098 (2.50mm)  - 5
+67996-100HLF Connector -  6 
