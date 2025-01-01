@@ -9,7 +9,6 @@ This repository contains practical implementations, labs, and a project related 
 2_Information transfer with MQTT and HTTP using JSON/
 3_The Constrained Application Protocol (CoAP)/
 4_Hardware Implementation of IoT System Components/
-Project/
 README.md
 ```
 
@@ -26,9 +25,6 @@ README.md
 
 4. **4_Hardware Implementation of IoT System Components**  
    Focuses on hardware aspects of IoT, demonstrating the setup and integration of components such as sensors and actuators to build a functioning IoT system.
-
-5. **Project**  
-   This folder contains a final project that integrates the protocols and hardware implementations covered in this course, demonstrating a real-world IoT application.
 
 ## Getting Started
 

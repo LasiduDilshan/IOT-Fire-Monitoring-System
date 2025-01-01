@@ -68,6 +68,10 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [temperatureThreshold, setTemperatureThreshold] = useState(40);
   const [coThreshold, setCOThreshold] = useState(1000);
+  const [lightThreshold, setLightThreshold] = useState(500); // Add Light threshold state
+  const [tempTemperatureThreshold, setTempTemperatureThreshold] = useState(40);
+  const [tempCOThreshold, setTempCOThreshold] = useState(1000);
+  const [tempLightThreshold, setTempLightThreshold] = useState(500); // Add temporary Light threshold state
   const alarmRef = useRef(null);
 
   const theme = createTheme({
@@ -75,7 +79,6 @@ const App = () => {
       mode: darkMode ? "dark" : "light",
     },
   });
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,6 +105,12 @@ const App = () => {
           let newDetectionReason = "No fire";
           if (
             response.data.temperature > temperatureThreshold &&
+            response.data.co > coThreshold &&
+            response.data.light < lightThreshold // Check Light threshold
+          ) {
+            newDetectionReason = "CO, Heat, and Light detection";
+          } else if (
+            response.data.temperature > temperatureThreshold &&
             response.data.co > coThreshold
           ) {
             newDetectionReason = "CO and Heat detection";
@@ -109,6 +118,8 @@ const App = () => {
             newDetectionReason = "Heat detection";
           } else if (response.data.co > coThreshold) {
             newDetectionReason = "CO detection";
+          } else if (response.data.light < lightThreshold) { // Add Light detection
+            newDetectionReason = "Light detection";
           }
 
           if (
@@ -138,6 +149,7 @@ const App = () => {
     stopPressed,
     temperatureThreshold,
     coThreshold,
+    lightThreshold, // Add Light threshold to dependencies
   ]);
 
   useEffect(() => {
@@ -156,7 +168,11 @@ const App = () => {
 
   const handleStopDetection = () => {
     setStopPressed(true);
-    if (data.temperature <= temperatureThreshold && data.co <= coThreshold) {
+    if (
+      data.temperature <= temperatureThreshold &&
+      data.co <= coThreshold &&
+      data.light >= lightThreshold // Check Light threshold
+    ) {
       setDetectionReason("No fire");
       if (alarmRef.current) {
         alarmRef.current.pause();
@@ -197,9 +213,14 @@ const App = () => {
   };
 
   const handleUpdateThresholds = () => {
-    // Here you would typically send the updated thresholds to your backend or state management
-    // For now, we'll just log them
-    console.log("Updated Thresholds:", { temperatureThreshold, coThreshold });
+    setTemperatureThreshold(tempTemperatureThreshold);
+    setCOThreshold(tempCOThreshold);
+    setLightThreshold(tempLightThreshold); // Update Light threshold
+    console.log("Updated Thresholds:", {
+      temperatureThreshold: tempTemperatureThreshold,
+      coThreshold: tempCOThreshold,
+      lightThreshold: tempLightThreshold, // Log Light threshold
+    });
   };
 
   const chartOptions = {
@@ -362,23 +383,34 @@ const App = () => {
                       justifyContent="center"
                       style={{ marginTop: "40px" }}
                     >
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} md={4}>
                         <TextField
                           label="Temperature Threshold (°C)"
                           type="number"
-                          value={temperatureThreshold}
+                          value={tempTemperatureThreshold}
                           onChange={(e) =>
-                            setTemperatureThreshold(e.target.value)
+                            setTempTemperatureThreshold(e.target.value)
                           }
                           fullWidth
                         />
                       </Grid>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} md={4}>
                         <TextField
                           label="CO Threshold (ppm)"
                           type="number"
-                          value={coThreshold}
-                          onChange={(e) => setCOThreshold(e.target.value)}
+                          value={tempCOThreshold}
+                          onChange={(e) => setTempCOThreshold(e.target.value)}
+                          fullWidth
+                        />
+                      </Grid>
+                      <Grid item xs={12} md={4}>
+                        <TextField
+                          label="Light Threshold (lux)"
+                          type="number"
+                          value={tempLightThreshold} // Add input for Light threshold
+                          onChange={(e) =>
+                            setTempLightThreshold(e.target.value)
+                          }
                           fullWidth
                         />
                       </Grid>
@@ -414,6 +446,9 @@ const App = () => {
                           </Typography>
                           <Typography variant="body1" align="center">
                             CO Threshold: {coThreshold} ppm
+                          </Typography>
+                          <Typography variant="body1" align="center">
+                            Light Threshold: {lightThreshold} lux
                           </Typography>
                         </Card>
                       </Grid>

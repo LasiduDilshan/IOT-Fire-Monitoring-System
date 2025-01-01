@@ -10,16 +10,16 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const int mq7Pin = 35; // Pin connected to the MQ-7 analog output
-const int ldrPin = 34; // Pin connected to the LDR analog output
+const int mq7Pin = 34; // Pin connected to the MQ-7 analog output
+const int ldrPin = 35; // Pin connected to the LDR analog output
 
 // WiFi settings
-const char* ssid = "DESKTOP-6QV9NTA 2050";
-const char* password = "770X|d94";
+const char* ssid = "ENTER WIFI SSID";
+const char* password = "ENTER WIFI PASSWORD";
 
 // MQTT settings
 const char* mqtt_server = "mqtt.eclipseprojects.io";
-const char* publish_topic = "JACK1234";
+const char* publish_topic = "Replace with your MQTT topic"; // Replace with your MQTT topic
 
 WiFiClient espClient;
 PubSubClient client(espClient);

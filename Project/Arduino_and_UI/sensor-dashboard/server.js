@@ -32,7 +32,7 @@ app.post('/api/send-whatsapp', (req, res) => {
 
   client.messages
     .create({
-      body: 'Fire Alarm',
+      body: '🚨🔥 Fire Alert: A fire has been reported! Please evacuate immediately and stay safe! 🔥🚨',
       from: 'whatsapp:Enter_Twilio_WhatsApp_Number', // This is Twilio's sandbox number for WhatsApp
       to: `whatsapp:${to}`,
     })
