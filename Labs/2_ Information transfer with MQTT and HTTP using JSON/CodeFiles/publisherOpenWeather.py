@@ -14,7 +14,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 # Replace 'your_api_key' with the API key you obtained
-api_key = '708e2a65bc02731d8b033cb105a5382c'
+api_key = 'your_api_key'
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 
 # User input
