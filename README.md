@@ -8,3 +8,4 @@ This repository contains four IoT-related labs and the implementation of a smart
 ![Screenshot 2025-01-01 162127](https://github.com/user-attachments/assets/7f2b8466-0715-4c43-96ce-f936de35a622) 
 ![Screenshot 2025-01-01 162202](https://github.com/user-attachments/assets/6a6a6a2d-c4aa-407b-bd61-0c5461357042) 
 ![Screenshot 2025-01-01 162221](https://github.com/user-attachments/assets/e18134ab-1ab3-4716-be8e-5352ad9ade61)
+![pcb](https://github.com/user-attachments/assets/09c89ced-714d-448c-80b5-c459602ba286)
